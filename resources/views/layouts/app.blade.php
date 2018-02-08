@@ -16,6 +16,8 @@
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
         <link href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
+        
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
         @yield('css')
 
@@ -23,7 +25,7 @@
     <body>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,11 +64,9 @@
         </footer>
 
         
-
         <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
 
     </body>
 </html>

@@ -20,6 +20,7 @@ class AddMoneyController extends Controller {
     
 public function postPaymentWithStripe(Request $request)
     {
+        
         $validator = Validator::make($request->all(), [
             'card_no' => 'required',
             'ccExpiryMonth' => 'required',
@@ -31,7 +32,7 @@ public function postPaymentWithStripe(Request $request)
         $input = $request->all();
         if ($validator->passes()) {           
             $input = array_except($input,array('_token'));            
-            $stripe = Stripe::make('set here your stripe secret key');
+            $stripe = Stripe::make(config('stripe.secret'));
             try {
                 $token = $stripe->tokens()->create([
                     'card' => [
@@ -42,38 +43,38 @@ public function postPaymentWithStripe(Request $request)
                     ],
                 ]);
                 if (!isset($token['id'])) {
-                    Session::put('error','The Stripe Token was not generated correctly');
-                    return redirect()->route('stripform');
+                    dd('error','O Token Stripe não foi gerado corretamente');
                 }
                 $charge = $stripe->charges()->create([
                     'card' => $token['id'],
                     'currency' => 'BRL',
                     'amount'   => $request->get('amount'),
-                    'description' => 'Add in wallet',
+                    'description' => 'Adicionar na carteira'
                 ]);
                 if($charge['status'] == 'succeeded') {
                     /**
-                    * Write Here Your Database insert logic.
+                    * Escreva aqui sua lógica de inserção do banco de dados.
                     */
-                    Session::put('success','Money add successfully in wallet');
-                    return redirect()->route('stripform');
+                    dd('success','Dinheiro adicionado com sucesso na carteira');
+                    
                 } else {
-                    Session::put('error','Money not add in wallet!!');
-                    return redirect()->route('stripform');
+                    dd('error','Dinheiro não adicionado na carteira!!');
+                    
                 }
+                
             } catch (Exception $e) {
-                Session::put('error',$e->getMessage());
-                return redirect()->route('stripform');
+                dd('error',$e->getMessage());
+                
             } catch(\Cartalyst\Stripe\Exception\CardErrorException $e) {
-                Session::put('error',$e->getMessage());
-                return redirect()->route('stripform');
+                dd('error',$e->getMessage());
+                
             } catch(\Cartalyst\Stripe\Exception\MissingParameterException $e) {
-                Session::put('error',$e->getMessage());
-                return redirect()->route('stripform');
+                dd('error',$e->getMessage());
+                
             }
         }
-        Session::put('error','All fields are required!!');
-        return redirect()->route('stripform');
+        dd('error','Todos os campos são necessários!');
+        
     }
 
 }
