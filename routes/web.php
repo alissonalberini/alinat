@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('home', ['produtos' => ['oi','oioi']]);
 });
+
+Route::get('/stripform', 'AddMoneyController@payWithStripe');
+Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
