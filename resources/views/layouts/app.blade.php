@@ -12,13 +12,10 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
         <link href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
-        
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+        <link href="{{ asset('plugins/svg-with-js/css/fa-svg-with-js.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('plugins/select2-4.0.6-rc.1/dist/css/select2.min.css') }}" rel="stylesheet">
         @yield('css')
 
     </head>
@@ -33,19 +30,25 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-1" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                            </form>
+                        </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="#">Cart <span class="fas fa-shopping-cart"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="/pay">Pay</a>
                         </li>
                     </ul>
                 </div>
@@ -67,6 +70,7 @@
         <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
+        <script src="{{ asset('plugins/svg-with-js/js/fontawesome-all.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('select2-4.0.6-rc.1/dist/js/select2.min.js') }}" type="text/javascript"></script>
     </body>
 </html>
