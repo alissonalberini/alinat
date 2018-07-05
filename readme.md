@@ -1,5 +1,52 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
+
+Requisitos:
+	PHP >= 7.1.3
+	OpenSSL PHP Extension
+	PDO PHP Extension
+	Mbstring PHP Extension
+	Tokenizer PHP Extension
+	XML PHP Extension
+	Ctype PHP Extension
+	JSON PHP Extension
+
+	Mysql >= 5.7
+
+
+Instalação:
+	Clone o projeto no seu diretório específico:
+		git clone https://github.com/alissonalberini/alinat.git
+
+		Crie o .env ou copie e renomeie o .env.example
+
+		Crie um banco de dados com o nome: alinat_db
+
+		Informe no seu .env os dados do banco de dados
+
+
+	Entre no diretório do projeto pelo terminal:
+
+		Instalar dependencias: composer install
+		Generar chave do projeto: php artisan key:generate
+		Criar tabelas no banco de dados: php artisan migrate
+		Inserir dados de teste: php artisan seed
+
+
+	Pronto, se tudo ocorreu bem!
+
+		iniciar o servidor: php artisan serve
+
+
+
+--- Dado inicio ao projeto recentemente, sinta-se a vontade de contribuir.
+
+--- A ideia do projeto é melhorar a esperiência do cliente final, em visualizar seus 	produtos, de acordo com seu interesse, sendo a melhor esperiência do mundo!
+
+
+--- Quando este paradigma estiver aceitável, estaremos evoluindo para um e-commerce!
+
+
 Po pup para se cadastrar para obter cupom de desconto;
 
 Carrinhos(id, produto_id, cliente_id, quantidade, valor, timestamps);
