@@ -13,17 +13,22 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
         <link href="{{ asset('plugins/svg-with-js/css/fa-svg-with-js.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('plugins/select2-4.0.6-rc.1/dist/css/select2.min.css') }}" rel="stylesheet">
         @yield('css')
 
     </head>
     <body>
+        
+        <div class="jumbotron text-center" style="margin-bottom:0">
+            <h1>Alinat use Bootstrap 4</h1>
+            <p>A porra toda é responsiva!</p> 
+        </div>
+
 
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            
                 <a class="navbar-brand" href="#">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -52,7 +57,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            
         </nav>
 
         
@@ -71,6 +76,6 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('plugins/svg-with-js/js/fontawesome-all.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('select2-4.0.6-rc.1/dist/js/select2.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('plugins/select2-4.0.6-rc.1/dist/js/select2.min.js') }}" type="text/javascript"></script>
     </body>
 </html>

@@ -54,14 +54,6 @@
 <!-- Page Content -->
 <div class="container">
 
-    <!-- Jumbotron Header -->
-    <header class="jumbotron my-3">
-        <h1 class="display-3">Olá Bem vindo!</h1>
-        <p class="lead">Aqui vão as novidades, promoções e lançamentos.</p>
-        <p class="lead">Cadastre-se e ganhe desconto.</p>
-        <a href="#" class="btn btn-primary btn-lg">$Desconto!</a>
-    </header>
-
     <div class="col-lg-12 my-3">
         <ul class="nav">
             <li class="nav-item">
@@ -83,7 +75,7 @@
                 <a class="nav-link" href="#">Preço <span class="fas fa-sort-numeric-up"></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled <span class="fas fa-sort"></a></li>
+                <a class="nav-link disabled" href="#">Indisponível <span class="fas fa-sort"></a></li>
         </ul>
     </div>
 
