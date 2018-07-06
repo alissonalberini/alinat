@@ -1,3 +1,4 @@
+Olá usamos Laravel!
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 
@@ -38,18 +39,14 @@ Instalação:
 		iniciar o servidor: php artisan serve
 
 
+*Features*
 
 --- Dado inicio ao projeto recentemente, sinta-se a vontade de contribuir.
 
 --- A ideia do projeto é melhorar a esperiência do cliente final, em visualizar seus 	produtos, de acordo com seu interesse, sendo a melhor esperiência do mundo!
 
+--- Quando estiver aceitável, estaremos evoluindo para um e-commerce!
 
---- Quando este paradigma estiver aceitável, estaremos evoluindo para um e-commerce!
-
-
-Po pup para se cadastrar para obter cupom de desconto;
-
-Carrinhos(id, produto_id, cliente_id, quantidade, valor, timestamps);
 
 As lista de produtos:
 	Rows col-md-2;
@@ -82,6 +79,10 @@ Carrinho|Pedido
 	
 CUPONS(ID, DESC, %_DESC, VAL_DESC);
 
+* Popup para se cadastrar para obter cupom de desconto;
+
+    Carrinhos(id, produto_id, cliente_id, quantidade, valor, timestamps);
+
 Configs
 	Dados de configurações diversas, dados de api para integração, taxas etc...
 
@@ -95,5 +96,3 @@ Configs
 	
 	<div class="row gallery row text-center">
 	<img class="card-img-top img-responsive thumbnail zoom" src="{{asset('imgs/c-1.PNG')}}" alt="caneca-dex"/>
-
-	

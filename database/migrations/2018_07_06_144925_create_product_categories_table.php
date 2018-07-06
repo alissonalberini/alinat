@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProdutoSimilaresTable extends Migration
+class CreateProductCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProdutoSimilaresTable extends Migration
      */
     public function up()
     {
-        Schema::create('produto_similares', function (Blueprint $table) {
+        Schema::create('product_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateProdutoSimilaresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produto_similares');
+        Schema::dropIfExists('product_categories');
     }
 }
