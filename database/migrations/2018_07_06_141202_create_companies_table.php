@@ -28,7 +28,7 @@ class CreateCompaniesTable extends Migration
             $table->string('number', 100)->nullable();
             $table->string('neighborhood')->nullable();
             $table->string('complement')->nullable();
-            $table->integer('citie_id');
+            $table->unsignedInteger('citie_id');
             $table->string('obs')->nullable();
             $table->string('url_logo')->nullable();
             $table->timestamps();

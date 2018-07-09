@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCartsTable extends Migration
+class CreateClientCardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
+        Schema::create('client_cards', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            //Identificar visitantes não logados.
+            $table->unsignedInteger('card_id');
+            $table->unsignedInteger('client_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('card_id')->references('id')->on('cards');
+            $table->foreign('client_id')->references('id')->on('clients');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('client_cards');
     }
 }

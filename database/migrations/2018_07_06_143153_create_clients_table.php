@@ -27,9 +27,9 @@ class CreateClientsTable extends Migration
             $table->string('number', 100)->nullable();
             $table->string('neighborhood')->nullable();
             $table->string('complement')->nullable();
-            $table->integer('citie_id');
+            $table->unsignedInteger('citie_id');
             $table->string('obs')->nullable();
-            $table->string('url_logo')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
             $table->foreign('citie_id')->references('id')->on('cities');
         });

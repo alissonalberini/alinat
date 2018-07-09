@@ -17,3 +17,17 @@ Route::get('/', function () {
 
 Route::get('/pay', 'AddMoneyController@payWithStripe');
 Route::get('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
+
+//Routes with resources, used in the creation of the Model with migration and control
+
+Route::resource('cards','CardController');
+
+Route::resource('carts','CartController');
+
+Route::resource('categoryes','CategoryController');
+
+Route::resource('clients','ClientController');
+
+Route::resource('company','CompanyController');
+
+Route::resource('products','ProductController');

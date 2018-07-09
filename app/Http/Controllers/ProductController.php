@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Validator;
+use Exception;
+use Illuminate\Database\QueryException;
 
 class ProductController extends Controller
 {
@@ -14,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('product.index')->with(['produtos' => $products]);
     }
 
     /**
@@ -24,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.new');
     }
 
     /**
@@ -35,7 +39,37 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            
+            $validator = Validator::make($request, [
+                'name' => 'required|max:191|min:1',
+                'unidade' => 'required|max:191|min:1',
+                'purchase_price' => 'required',
+                'sale_price' => 'required',
+                'stock' => 'required',
+                'stock_min' => 'required',
+                'input' => 'required',
+                'exit' => 'required'
+            ]);
+            
+            if ($validator->fails()) {
+                return redirect('products/create')
+                    ->withErrors($validator)
+                    ->withInput();
+                //Exception!
+            }
+            
+            $create = Product::create($request);
+            if(!$create){
+                
+            }
+            
+        } catch (Exception $ex) {
+           //Exception!
+        }
+        catch (QueryException $ex) {
+            //Exception!
+        }
     }
 
     /**
@@ -46,7 +80,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('product.show');
     }
 
     /**
@@ -57,7 +91,11 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $reg = Product::find($product);
+        if(!$reg){
+            //Exception!
+        }
+        return view('product.edit')->with(['produto' => $reg]);
     }
 
     /**
@@ -69,7 +107,38 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        try{
+            
+            $validator = Validator::make($request, [
+                'name' => 'required|max:191|min:1',
+                'unidade' => 'required|max:191|min:1',
+                'purchase_price' => 'required',
+                'sale_price' => 'required',
+                'stock' => 'required',
+                'stock_min' => 'required',
+                'input' => 'required',
+                'exit' => 'required'
+            ]);
+            
+            if ($validator->fails()) {
+                return redirect('products/' . $product)
+                    ->withErrors($validator)
+                    ->withInput();
+                //Exception!
+            }
+            
+            //$request->id
+            $create = Product::find($product)->update($request);
+            if(!$create){
+                
+            }
+            
+        } catch (Exception $ex) {
+           //Exception!
+        }
+        catch (QueryException $ex) {
+            //Exception!
+        }
     }
 
     /**
@@ -80,6 +149,12 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        try{   
+            Pessoa::destroy($product);
+            
+        } catch (Exception $ex) {
+
+        }    
     }
+    
 }
