@@ -16,4 +16,9 @@ class Product extends Model
         'input',
         'exit'
     ];
+
+    public function images()
+    {
+        return $this->hasMany('App\Models\ProductImage');
+    }
 }
