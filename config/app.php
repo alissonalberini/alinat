@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         
+        //Package from Stripe payments
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
     ],

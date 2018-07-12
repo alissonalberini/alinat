@@ -1,8 +1,7 @@
 Olá usamos Laravel!
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-
-Requisitos:
+*Requisitos*:
 	PHP >= 7.1.3
 	OpenSSL PHP Extension
 	PDO PHP Extension
@@ -83,16 +82,26 @@ CUPONS(ID, DESC, %_DESC, VAL_DESC);
 
     Carrinhos(id, produto_id, cliente_id, quantidade, valor, timestamps);
 
-Configs
-	Dados de configurações diversas, dados de api para integração, taxas etc...
+TODO's NOW!:
 
-	SERVIÇOS INTEGRADOS AIMPLEMENTAR:
-	*CORREIOS
-	*STRIPE
-	*PAYPAL
-	*PAGSEGURO
-	*mailgun emails;
-	*sms?;
-	
-	<div class="row gallery row text-center">
-	<img class="card-img-top img-responsive thumbnail zoom" src="{{asset('imgs/c-1.PNG')}}" alt="caneca-dex"/>
+    *Produtos em destaque = *Novidades (considerados os ultimos a serem cadastrados)
+    Páginas de erro, adicionar nas execções
+    Produtos, obrigatório ao menos 1 imagem, tratar se existe
+    Paginação, editar css na vendor
+    Carrinho de compras
+    Determinar Tamanho/resolução/formatos de imagens que serão aceitos.
+
+*Configs*
+    Dados de configurações diversas, dados de api para integração, taxas etc...
+
+
+*SERVIÇOS INTEGRADOS AIMPLEMENTAR:*
+    *CORREIOS
+    *STRIPE
+    *PAYPAL
+    *PAGSEGURO
+    *mailgun emails;
+    *sms?;
+
+    <div class="row gallery row text-center">
+    <img class="card-img-top img-responsive thumbnail zoom" src="{{asset('imgs/c-1.PNG')}}" alt="caneca-dex"/>

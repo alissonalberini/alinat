@@ -21,4 +21,14 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\ProductImage');
     }
+    
+    public function categories(){
+        //return $this->hasMany('App\Models\ProductCategory');
+        return $this->belongsToMany('App\Models\Category','product_categories','product_id','category_id');
+    }
+    
+    public function similars(){
+        return $this->belongsToMany('App\Models\Product','product_similars','product_id','product_similar_id');
+    }
+
 }
