@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @include('layouts.head')
+        @include('layouts.app')
     </head>
     <body>
         <div class="error-page login-wrap bg-cover height-100-p customscroll d-flex align-items-center flex-wrap justify-content-center pd-20">
@@ -14,6 +14,5 @@
                 </div>
             </div>
         </div>
-        <?php include('include/script.php'); ?>
     </body>
 </html>

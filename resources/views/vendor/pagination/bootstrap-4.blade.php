@@ -1,44 +1,44 @@
 @if ($paginator->hasPages())
-    <ul class="pagination" role="navigation">
-        {{-- Previous Page Link --}}
-        @if ($paginator->onFirstPage())
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                <span class="page-link" aria-hidden="true">&lsaquo;</span>
-            </li>
-        @else
-            <li class="page-item">
-                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
-            </li>
-        @endif
+<div class="blog-pagination mb-30">
+    <div class="btn-toolbar justify-content-center mb-15">
+        <div class="btn-group">
 
-        {{-- Pagination Elements --}}
-        @foreach ($elements as $element)
-            {{-- "Three Dots" Separator --}}
-            @if (is_string($element))
-                <li class="page-item disabled" aria-disabled="true"><span class="page-link">{{ $element }}</span></li>
-            @endif
+            <ul class="pagination" role="navigation">
+                {{-- Previous Page Link --}}
+                @if ($paginator->onFirstPage())
+                <a href="#" class="btn btn-outline-primary prev disabled"><i class="fa fa-angle-double-left"></i></a>
+                @else
+                <a href="{{ $paginator->previousPageUrl() }}" class="btn btn-outline-primary prev" rel="prev" aria-label="@lang('pagination.previous')"><i class="fa fa-angle-double-left"></i></a>
+                @endif
 
-            {{-- Array Of Links --}}
-            @if (is_array($element))
+                {{-- Pagination Elements --}}
+                @foreach ($elements as $element)
+                {{-- "Three Dots" Separator --}}
+                @if (is_string($element))
+                <a href="" class="btn btn-outline-primary">{{ $element }}</a>
+                @endif
+
+                {{-- Array Of Links --}}
+                @if (is_array($element))
                 @foreach ($element as $page => $url)
-                    @if ($page == $paginator->currentPage())
-                        <li class="page-item active" aria-current="page"><span class="page-link">{{ $page }}</span></li>
-                    @else
-                        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
-                    @endif
+                @if ($page == $paginator->currentPage())
+                <a href="#" class="btn btn-outline-primary active">{{ $page }}</a>
+                @else
+                <a href="{{ $url }}" class="btn btn-outline-primary">{{ $page }}</a>
+                @endif
                 @endforeach
-            @endif
-        @endforeach
+                @endif
+                @endforeach
 
-        {{-- Next Page Link --}}
-        @if ($paginator->hasMorePages())
-            <li class="page-item">
-                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
-            </li>
-        @else
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                <span class="page-link" aria-hidden="true">&rsaquo;</span>
-            </li>
-        @endif
-    </ul>
+                {{-- Next Page Link --}}
+                @if ($paginator->hasMorePages())
+                <a href="{{ $paginator->nextPageUrl() }}" class="btn btn-outline-primary next"><i class="fa fa-angle-double-right"></i></a>
+                @else                
+                <a href="" class="btn btn-outline-primary next disabled"><i class="fa fa-angle-double-right"></i></a>                
+                @endif
+                
+            </ul>
+        </div>
+    </div>
+</div>
 @endif

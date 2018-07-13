@@ -84,6 +84,10 @@ CUPONS(ID, DESC, %_DESC, VAL_DESC);
 
 TODO's NOW!:
 
+    Criar em categorias a opção de categorias pai, e ordenação;
+    Attributes: criar tabela
+    *Produtos: descrição e opções
+    ProdutoAttributes = associação de um produto a n características e correspondentes valores*
     *Produtos em destaque = *Novidades (considerados os ultimos a serem cadastrados)
     Páginas de erro, adicionar nas execções
     Produtos, obrigatório ao menos 1 imagem, tratar se existe
