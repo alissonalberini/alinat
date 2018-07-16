@@ -2,102 +2,125 @@ Olá usamos Laravel!
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 *Requisitos*:
-	PHP >= 7.1.3
-	OpenSSL PHP Extension
-	PDO PHP Extension
-	Mbstring PHP Extension
-	Tokenizer PHP Extension
-	XML PHP Extension
-	Ctype PHP Extension
-	JSON PHP Extension
+    PHP >= 7.1.3
+    OpenSSL PHP Extension
+    PDO PHP Extension
+    Mbstring PHP Extension
+    Tokenizer PHP Extension
+    XML PHP Extension
+    Ctype PHP Extension
+    JSON PHP Extension
+    Mysql or MariaDB >= last version stable;
 
-	Mysql >= 5.7
-
+-------------------
 
 Instalação:
-	Clone o projeto no seu diretório específico:
-		git clone https://github.com/alissonalberini/alinat.git
-
-		Crie o .env ou copie e renomeie o .env.example
-
-		Crie um banco de dados com o nome: alinat_db
-
-		Informe no seu .env os dados do banco de dados
-
+    Clone o projeto no seu diretório específico:
+        git clone https://github.com/alissonalberini/alinat.git
+        Crie o .env ou copie e renomeie o .env.example
+        Crie um banco de dados com o nome: alinat_db
+        Informe no seu .env os dados do banco de dados
 
 	Entre no diretório do projeto pelo terminal:
-
-		Instalar dependencias: composer install
-		Generar chave do projeto: php artisan key:generate
-		Criar tabelas no banco de dados: php artisan migrate
-		Inserir dados de teste: php artisan seed
-
+            Instalar dependencias: composer install
+            Generar chave do projeto: php artisan key:generate
+            Criar tabelas no banco de dados: php artisan migrate
+            Inserir dados de teste: php artisan seed
 
 	Pronto, se tudo ocorreu bem!
+        iniciar o servidor: php artisan serve
 
-		iniciar o servidor: php artisan serve
-
+-------------------
 
 *Features*
 
---- Dado inicio ao projeto recentemente, sinta-se a vontade de contribuir.
+    Dado inicio ao projeto recentemente, sinta-se a vontade de contribuir.
+    Idéia: experiência para um e-commerce!
 
---- A ideia do projeto é melhorar a esperiência do cliente final, em visualizar seus 	produtos, de acordo com seu interesse, sendo a melhor esperiência do mundo!
-
---- Quando estiver aceitável, estaremos evoluindo para um e-commerce!
-
-
-As lista de produtos:
-	Rows col-md-2;
-	Ordenação: Relevância(+vendido, lançamento),data(lançamento),Nome,Preço,Promoção,estoque;
-	Pesquisa: Nome, categoria, descrição;
-	Filtros: Atributos ex: tamanho, cor, peso, marca, categoria;
-	Modo visualização: troca o esquema de grade de 5x para 2x;
-
-Produtos mostrar:
-	Foto(mouse move zoom) principal, nome, preço, (estoque)
+Visualização de produtos:
+    Em cards, com nome, imagem e preço preço de oferta, disponibilidade, com ordenação*, e zoom*
+    Ordenação: Relevância(+vendido, lançamento),data(lançamento),Nome,Preço,Promoção,estoque;
+    Pesquisa: Nome, categoria, descrição;
+    Filtros: Atributos ex: tamanho, cor, peso, marca, categoria;
+    Zoom: (mouse move zoom)
 
 Detalhes do produto:
-	Descrição todas as caracteristicas, avaliação, relacionados, sugeridos, e vistos recentemente;
+    Descrição completa;
+    Caracteristicas;
+    Avaliação;
+    Relacionados/sugeridos
+    Vistos recentemente;
+
+Popup's: 
+    Pedindo para se cadastrar;
+    Para obter cupom de desconto;
+    Para obter ofertas do dia;
+
+Carrinho de compra:
+    (user_cliente_id, produto_id, quantidade, valor_ato_compra, timestamps);
+
+-------------------
+
+Estrutura de tabelas (using migrations);
 	
-CATEGORIAS(ID, DESCRICAO);
+    CATEGORIAS;
+    ESTADOS;
+    CIDADES;
+    EMPRESA*;
+    Pessoa: Clientes/Fornecedores;
+        Pessoa_enderecos;
+        Pessoa_cartoes;
 
-PRODUTOS(ID, DESCRICAO, PREÇO_ATACADO, PREÇO_VAREJO, ESTOQUE, VISIBILIDADE)
-	PRODUTO_IMAGENS
-	PRODUTO_CATEGORIAS
-	PRODUTO_RELACIONADOS
-	PRODUTO_CARACTERISTICAS (TEXTOS, DETALHES, CORES)
-	PRODUTO_DIMENSOES	(ALTURA LARGURA, COMP, PESO, EMBALAGEM);
+    PRODUTOS(ID, DESCRICAO, PREÇO_ATACADO, PREÇO_VAREJO, ESTOQUE, VISIBILIDADE)
+        PRODUTO_IMAGENS
+        PRODUTO_CATEGORIAS
+        PRODUTO_RELACIONADOS
+        PRODUTO_CARACTERISTICAS (TEXTOS, DETALHES, CORES)
+        PRODUTO_DIMENSOES	(ALTURA LARGURA, COMP, PESO, EMBALAGEM);
 
-Clientes/Fornecedores
-	Cliente_enderecos
-	Cliente_cartoes
-	
-Carrinho|Pedido
-	Pedido_Itens;
-	
-CUPONS(ID, DESC, %_DESC, VAL_DESC);
+    Carrinho|Pedido
+        Pedido_Itens;
+        (id, produto_id, cliente_id, quantidade, valor, timestamps);
 
-* Popup para se cadastrar para obter cupom de desconto;
+    CUPONS(ID, DESC, %_DESC, VAL_DESC);
 
-    Carrinhos(id, produto_id, cliente_id, quantidade, valor, timestamps);
+-------------------
 
 TODO's NOW!:
 
-    Criar em categorias a opção de categorias pai, e ordenação;
-    Attributes: criar tabela
     *Produtos: descrição e opções
-    ProdutoAttributes = associação de um produto a n características e correspondentes valores*
-    *Produtos em destaque = *Novidades (considerados os ultimos a serem cadastrados)
     Páginas de erro, adicionar nas execções
     Produtos, obrigatório ao menos 1 imagem, tratar se existe
-    Paginação, editar css na vendor
     Carrinho de compras
     Determinar Tamanho/resolução/formatos de imagens que serão aceitos.
+
+    Decisões importantes:
+        Produtos: um produto poderá possuir mais de uma categoria?
+        SubCategorias: categorias, terão subcategorias?
+        Se sim: Criar em categorias a opção de categorias pai, e ordenação;
+     
+        
+    Adicionar em produto(s):
+        ProdutoRatings = seria o(s) comentários e avaliações dos compradores;
+            nota de avaliação de 0 a 10 ou de 1 a 5 estrelas;
+            somente uma avaliação por compra por produtor or usuário;
+            Avaliações sem sentido\ofenças etc, são banidas e ocultas, 
+            e o usuário que a fez deverá ser notificado
+        rating/avaliação = dentro de produto mesmo, média das avaliações.
+
+    Em detalhes de produto:
+        Aba para mostrar a(s) avaliações;
+
+TODO's resolvidas:
+    Paginação, editar css na vendor
+    *Produtos em destaque = *Novidades (considerados os ultimos a serem cadastrados)
+    ProdutoAttributes: Assoociação de um produto a n características e correspondentes valores*
+        Mapeando caracteristicas: Dimensão, material, capacidade, Tamanho(p,m,g, gg);
 
 *Configs*
     Dados de configurações diversas, dados de api para integração, taxas etc...
 
+-------------------
 
 *SERVIÇOS INTEGRADOS AIMPLEMENTAR:*
     *CORREIOS
@@ -107,5 +130,6 @@ TODO's NOW!:
     *mailgun emails;
     *sms?;
 
-    <div class="row gallery row text-center">
-    <img class="card-img-top img-responsive thumbnail zoom" src="{{asset('imgs/c-1.PNG')}}" alt="caneca-dex"/>
+
+<div class="row gallery row text-center">
+<img class="card-img-top img-responsive thumbnail zoom" src="{{asset('imgs/c-1.PNG')}}" alt="caneca-dex"/>

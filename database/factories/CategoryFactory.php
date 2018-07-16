@@ -3,7 +3,7 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\Category::class, function (Faker $faker) {
-    return [
-        //
+        return [
+        'name' => $faker->firstName,
     ];
 });

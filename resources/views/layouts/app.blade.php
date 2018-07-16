@@ -26,38 +26,14 @@
         <div class="jumbotron text-center" style="margin-bottom:0">
             <h1>Alinat use Bootstrap 4</h1>
             <p>A porra toda é responsiva!</p> 
-
-            <form class="form-inline pull-right">
-                <input class="form-control mr-sm-1" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+            
+            <form class="form-inline pull-right" action="/" method="get">
+                <input class="form-control mr-sm-1" type="search" placeholder="Pesquisar" name="search" aria-label="Pesquisar">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
             </form>
         </div>
-
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cart <span class="fas fa-shopping-cart"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/pay">Pay</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        
+        @include('layouts.navbar')
         
         @yield('content')
 
