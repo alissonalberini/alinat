@@ -23,18 +23,28 @@
     </head>
     <body>
         
-        <div class="jumbotron text-center" style="margin-bottom:0">
-            <h1>Alinat use Bootstrap 4</h1>
-            <p>A porra toda é responsiva!</p> 
-            
-            <form class="form-inline pull-right" action="/" method="get">
-                <input class="form-control mr-sm-1" type="search" placeholder="Pesquisar" name="search" aria-label="Pesquisar">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
+        <div class="jumbotron" style="margin-bottom:0px; padding: 20px; background-color: purple;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <h1>
+                        <a title="Alinat - Presentes criativos" class="logo" href="https://www.alinat.com.br/">
+                        <img src="https://www.funstock.com.br/skin/frontend/facilestore/default/images/logo.png" alt="Alinat - Presentes criativos" title="Alinat - Presentes criativos" class="img-responsive">
+                    </a>
+                    </h1>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <form class="form-inline" action="/" method="get">
+                        <input class="form-control mr-sm-1" type="search" placeholder="Pesquisar" name="search" aria-label="Pesquisar" style="width: 80%">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                    </form>                
+                </div>
+            </div>
         </div>
         
+        @include('layouts.carrousel')
+
         @include('layouts.navbar')
-        
+
         @yield('content')
 
         <footer class="py-5 bg-dark">
@@ -44,7 +54,7 @@
             <!-- /.container -->
         </footer>
 
-        
+
         <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

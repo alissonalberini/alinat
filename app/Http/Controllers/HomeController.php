@@ -55,7 +55,7 @@ class HomeController extends Controller
 
     public function detail($prouduct)
     {
-        $product = Product::with('images','categories','similars')->find($prouduct);
+        $product = Product::with('images','ratings','categories','similars')->find($prouduct);
         //dd($product);
 
         return view('detail')->with(['product' => $product]);

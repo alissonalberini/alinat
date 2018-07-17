@@ -112,10 +112,7 @@ TODO's NOW!:
         Aba para mostrar a(s) avaliações;
 
 TODO's resolvidas:
-    Paginação, editar css na vendor
-    *Produtos em destaque = *Novidades (considerados os ultimos a serem cadastrados)
-    ProdutoAttributes: Assoociação de um produto a n características e correspondentes valores*
-        Mapeando caracteristicas: Dimensão, material, capacidade, Tamanho(p,m,g, gg);
+
 
 *Configs*
     Dados de configurações diversas, dados de api para integração, taxas etc...

@@ -76,7 +76,7 @@
                             </div>
                         </li>
                         @empty
-                            <p>Não encontrados</p>
+                            <p>Não encontrados resultados para a pesquisa ou filtro</p>
                         @endforelse
 
                         {{ $products->links() }}

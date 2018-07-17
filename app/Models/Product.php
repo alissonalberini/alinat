@@ -22,6 +22,11 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductImage');
     }
     
+    public function ratings()
+    {
+        return $this->hasMany('App\Models\ProductRating');
+    }
+    
     public function categories(){
         //return $this->hasMany('App\Models\ProductCategory');
         return $this->belongsToMany('App\Models\Category','product_categories','product_id','category_id');

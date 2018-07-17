@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="product-slider slider-arrow">
-                                
+
                                 @foreach($product->images as $image)
                                 <div class="product-slide">
                                     <img src="{{ asset("imgs") . "/" . $image->file }}" alt="">
@@ -75,11 +75,33 @@
                     </div>
                 </div>
 
+                <div class="container pd-0">
+                    <div class="timeline mb-30">
+                        <h4 class="mb-10">Avaliações do produto</h4>
+                        <ul>
+                            @foreach($product->ratings as $rating)
+                            <li>
+                                <div class="timeline-date">
+                                    {{ $rating->created_at }}
+                                    {{ $rating->rating }}
+                                </div>
+                                <div class="timeline-desc bg-white border-radius-4 box-shadow">
+                                    <div class="pd-20">
+                                        <h4 class="mb-10">{{ $rating->title }}</h4>
+                                        <p>{{ $rating->description }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+
                 <h4 class="mb-20">Produtos similares</h4>
 
                 <div class="product-list">
                     <ul class="row">
-                        
+
                         @foreach($product->similars as $product)
 
                         <li class="col-lg-3 col-md-6 col-sm-12">
@@ -100,6 +122,7 @@
 
                     </ul>
                 </div>
+
             </div>
         </div>
     </div>
@@ -117,29 +140,29 @@
 
 <script>
 jQuery(document).ready(function () {
-jQuery('.product-slider').slick({
-slidesToShow: 1,
-slidesToScroll: 1,
-arrows: true,
-infinite: true,
-speed: 1000,
-fade: true,
-asNavFor: '.product-slider-nav'
-});
-jQuery('.product-slider-nav').slick({
-slidesToShow: 3,
-slidesToScroll: 1,
-asNavFor: '.product-slider',
-dots: false,
-infinite: true,
-arrows: false,
-speed: 1000,
-centerMode: true,
-focusOnSelect: true
-});
-$("input[name='demo3_22']").TouchSpin({
-initval: 1
-});
+    jQuery('.product-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        infinite: true,
+        speed: 1000,
+        fade: true,
+        asNavFor: '.product-slider-nav'
+    });
+    jQuery('.product-slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.product-slider',
+        dots: false,
+        infinite: true,
+        arrows: false,
+        speed: 1000,
+        centerMode: true,
+        focusOnSelect: true
+    });
+    $("input[name='demo3_22']").TouchSpin({
+        initval: 1
+    });
 });
 </script>
 
