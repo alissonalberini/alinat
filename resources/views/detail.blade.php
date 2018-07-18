@@ -82,8 +82,7 @@
                             @foreach($product->ratings as $rating)
                             <li>
                                 <div class="timeline-date">
-                                    {{ $rating->created_at }}
-                                    {{ $rating->rating }}
+                                    {{ $rating->created_at }} -  {{ $rating->rating }}
                                 </div>
                                 <div class="timeline-desc bg-white border-radius-4 box-shadow">
                                     <div class="pd-20">

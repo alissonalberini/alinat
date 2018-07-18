@@ -9,7 +9,7 @@
 
 @section("content")
 
-<div class="container">
+<div class="container-fluid">
 
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -62,13 +62,13 @@
 
                         @forelse($products as $product)
                         
-                        <li class="col-lg-3 col-md-6 col-sm-12">
+                        <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                             <div class="product-box">
                                 <div class="producct-img"><img src="{{asset("imgs") . "/" .$product->images[0]->file}}" alt="caneca-dex"></div>
                                 <div class="product-caption">
                                     <h4><a href="#">{{ $product->name }}</a></h4>
                                     <div class="price">
-                                        <del>$55.5</del><ins>{{ $product->sale_price }}</ins>
+                                        <del>$30.00</del><ins>{{ $product->sale_price }}</ins>
                                     </div>
                                     <a href="/detalhes/{{ $product->id }}" class="btn btn-outline-primary">Detalhes</a>
                                     <a href="/addcart/{{ $product->id }}" class="btn btn-outline-success">Comprar</a>

@@ -45,10 +45,6 @@ Visualização de produtos:
     Zoom: (mouse move zoom)
 
 Detalhes do produto:
-    Descrição completa;
-    Caracteristicas;
-    Avaliação;
-    Relacionados/sugeridos
     Vistos recentemente;
 
 Popup's: 

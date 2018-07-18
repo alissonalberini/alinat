@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -48,7 +49,7 @@ class HomeController extends Controller
             $query->whereIn("id",$ids);
         }
         
-        $products = $query->paginate(4);
+        $products = $query->paginate(8);
 
         return view('home')->with(['products' => $products]);
     }
@@ -59,5 +60,20 @@ class HomeController extends Controller
         //dd($product);
 
         return view('detail')->with(['product' => $product]);
+    }
+    
+    public function addProductCart($prouduct)
+    {
+        Session::get('cart.itens');
+        Session::push('cart.itens.count',$prouduct);
+        //dd(Session::all());
+        return Redirect::back()->with('sucess');
+    }
+    
+    public function removeProductCart($prouduct)
+    {
+        Session::pull('cart.item', $prouduct);
+        //dd(Session::all());
+        return Redirect::back()->with('sucess');
     }
 }

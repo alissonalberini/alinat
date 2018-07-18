@@ -15,6 +15,8 @@
 
 Route::get('/','HomeController@index');
 Route::get('/detalhes/{id}','HomeController@detail');
+Route::get('/addcart/{id}','HomeController@addProductCart');
+Route::get('/remcart/{id}','HomeController@removeProductCart');
 /*
     To view
     Filter
