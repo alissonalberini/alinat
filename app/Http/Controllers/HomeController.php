@@ -64,8 +64,7 @@ class HomeController extends Controller
     
     public function addProductCart($prouduct)
     {
-        Session::get('cart.itens');
-        Session::push('cart.itens.count',$prouduct);
+        Session::push('cart.itens',$prouduct);
         //dd(Session::all());
         return Redirect::back()->with('sucess');
     }

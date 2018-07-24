@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\CartProduct;
 use Illuminate\Http\Request;
 
+use App\Models\CartProduct;
+
 class CartProductController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class CartProductController extends Controller
      */
     public function index()
     {
-        //
+        $items = CartProduct::with('products')->simplePaginate(10);
+        return $items;
     }
 
     /**
@@ -35,6 +38,8 @@ class CartProductController extends Controller
      */
     public function store(Request $request)
     {
+        //Validator no request se é um produto;
+        //Verifica se tem um carrinho criado;
         //
     }
 

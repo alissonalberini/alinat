@@ -15,6 +15,7 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('token')->index();
             $table->integer('user_id')->unsigned();
             //Identificar visitantes não logados.
             $table->timestamps();

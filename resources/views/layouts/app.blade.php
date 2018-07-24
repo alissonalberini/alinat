@@ -23,20 +23,31 @@
     </head>
     <body>
         
-        <div class="jumbotron" style="margin-bottom:0px; padding: 20px; background-color: purple;">
+        <div class="jumbotron" style="margin-bottom:0px; padding: 15px; background-color: purple;">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                     <h1>
                         <a title="Alinat - Presentes criativos" class="logo" href="https://www.alinat.com.br/">
                         <img src="https://www.funstock.com.br/skin/frontend/facilestore/default/images/logo.png" alt="Alinat - Presentes criativos" title="Alinat - Presentes criativos" class="img-responsive">
                     </a>
                     </h1>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                    <form class="form-inline" action="/" method="get">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                    <form class="form-inline" action="/" method="get" style="">
                         <input class="form-control mr-sm-1" type="search" placeholder="Pesquisar" name="search" aria-label="Pesquisar" style="width: 80%">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                     </form>                
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pull-left">
+                    <a style="color: white;" href="/cart"> 
+                        Cart 
+                        <span class="fas fa-shopping-cart"></span>
+                        <span class="badge badge-light">
+                            @if(Session::get('cart.itens'))
+                                {{ count(Session::get('cart.itens')) }}
+                            @endif
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>

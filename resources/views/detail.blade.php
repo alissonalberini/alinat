@@ -52,7 +52,7 @@
                         <div class="col-lg-6 col-md-12 col-sm-12">
                             <div class="product-detail-desc pd-20 bg-white border-radius-4 box-shadow height-100-p">
                                 <h4 class="mb-20 pt-20">{{ $product->name }}</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>{{ $product->description_full }}</p>
                                 <div class="price">
                                     <del>$55.5</del><ins>{{ $product->sale_price }}</ins>
                                 </div>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-6">
-                                        <a href="/addcart/{{ $product->id }}" class="btn btn-primary btn-block">Adicionar ao Carrinho</a>
+                                        <a href="/addcart/{{ $product->id }}" class="btn btn-primary btn-block">Adicionar ao Carrinho <i class="icon-copy fa fa-cart-plus" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="col-md-6 col-6">
                                         <a href="/comprar/{{ $product->id }}" class="btn btn-outline-primary btn-block">Comprar agora</a>
@@ -77,16 +77,16 @@
 
                 <div class="container pd-0">
                     <div class="timeline mb-30">
-                        <h4 class="mb-10">Avaliações do produto</h4>
+                        <h4 class="mb-10">Avaliações do produto {{ $product->rating }}</h4>
                         <ul>
                             @foreach($product->ratings as $rating)
                             <li>
                                 <div class="timeline-date">
-                                    {{ $rating->created_at }} -  {{ $rating->rating }}
+                                    Data: {{ $rating->created_at }}
                                 </div>
                                 <div class="timeline-desc bg-white border-radius-4 box-shadow">
                                     <div class="pd-20">
-                                        <h4 class="mb-10">{{ $rating->title }}</h4>
+                                        <h4 class="mb-10">{{ $rating->rating }} - {{ $rating->title }}</h4>
                                         <p>{{ $rating->description }}</p>
                                     </div>
                                 </div>

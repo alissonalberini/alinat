@@ -87,14 +87,14 @@ TODO's NOW!:
     *Produtos: descrição e opções
     Páginas de erro, adicionar nas execções
     Produtos, obrigatório ao menos 1 imagem, tratar se existe
-    Carrinho de compras
+    Carrinho de compras->andamento
     Determinar Tamanho/resolução/formatos de imagens que serão aceitos.
 
     Decisões importantes:
+        Dimensões e formato de imagem de produto;
         Produtos: um produto poderá possuir mais de uma categoria?
         SubCategorias: categorias, terão subcategorias?
         Se sim: Criar em categorias a opção de categorias pai, e ordenação;
-     
         
     Adicionar em produto(s):
         ProdutoRatings = seria o(s) comentários e avaliações dos compradores;
@@ -103,11 +103,12 @@ TODO's NOW!:
             Avaliações sem sentido\ofenças etc, são banidas e ocultas, 
             e o usuário que a fez deverá ser notificado
         rating/avaliação = dentro de produto mesmo, média das avaliações.
+        Andamento->migrations->adicionado na view detalhe->falta o pós venda*
 
-    Em detalhes de produto:
-        Aba para mostrar a(s) avaliações;
+    
 
 TODO's resolvidas:
+    Em detalhes de produto: Aba para mostrar a(s) avaliações;
 
 
 *Configs*
