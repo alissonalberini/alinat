@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Product;
 use App\Models\Category;
+use Cartalyst\Collections\Collection;
 
 class HomeController extends Controller
 {
@@ -56,7 +57,7 @@ class HomeController extends Controller
 
     public function detail($prouduct)
     {
-        $product = Product::with('images','ratings','categories','similars')->find($prouduct);
+        $product = Product::with('images','ratings','categories','similars','atributtes')->find($prouduct);
         //dd($product);
 
         return view('detail')->with(['product' => $product]);
@@ -64,15 +65,49 @@ class HomeController extends Controller
     
     public function addProductCart($prouduct)
     {
-        Session::push('cart.itens',$prouduct);
-        //dd(Session::all());
+        $dados = Request::all();
+        //Session::push('cart.itens',$prouduct);
+        Session::push('cart.itens', ['product' =>$prouduct, 'qtde' => (isset($dados['qtde']) ? $dados['qtde'] : 1)]);
+        //dd(Session::all(), Session::get('cart.itens'));
+
         return Redirect::back()->with('sucess');
     }
     
     public function removeProductCart($prouduct)
     {
-        Session::pull('cart.item', $prouduct);
-        //dd(Session::all());
+        Session::pull('cart.itens', ['product' =>$prouduct, 'qtde' => $dados['qtde']]);
+        //Session::pull('cart.item', $prouduct);
+        dd(Session::all());
         return Redirect::back()->with('sucess');
     }
+
+    public function Cart()
+    {
+        $dados = Session::get('cart.itens');
+
+        $produtos = new Collection();
+
+        if(count($dados) >= 1){
+
+            foreach($dados as $dado){
+
+                $produto = Product::with('images')->find($dado['product']);
+
+                $produtos->push([
+                    'id' => $produto->id, 
+                    'nome' => $produto->name, 
+                    'valor' => $produto->sale_price, 
+                    'img' => $produto->images->first()->file, 
+                    'qtde' => $dado['qtde']
+                    ]);
+
+            }
+            
+        }
+        dd($produtos);
+
+        return view('cart')->with(['itens' => $produtos]);
+    }
+
+
 }

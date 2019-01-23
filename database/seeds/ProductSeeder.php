@@ -15,6 +15,8 @@ class ProductSeeder extends Seeder
         for ($x = 1; $x <= 5; $x++) {
             Product::firstOrCreate([
                 'name' => 'CANECA nº' . $x,
+                'description_full' => 'detalhes blablabla da caneca especial ..... nº' . $x,
+                'rating' => 5,
                 'unity' => 'UN',
                 'purchase_price' => '10.00',
                 'sale_price' => '25.00',

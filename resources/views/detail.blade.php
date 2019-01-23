@@ -49,20 +49,31 @@
                                 @endforeach
                             </div>
                         </div>
+                        
                         <div class="col-lg-6 col-md-12 col-sm-12">
+                            <form id="frm-cart" action="/addcart/{{ $product->id }}" method="get">
                             <div class="product-detail-desc pd-20 bg-white border-radius-4 box-shadow height-100-p">
                                 <h4 class="mb-20 pt-20">{{ $product->name }}</h4>
-                                <p>{{ $product->description_full }}</p>
+                                <p>{{ $product->description_full }}
+                                </br>
+                                @foreach($product->atributtes as $attribute)
+                                    {{ $attribute->attribute }} : {{ $attribute->value }}
+                                    </br>
+                                @endforeach
+                                </p>
                                 <div class="price">
                                     <del>$55.5</del><ins>{{ $product->sale_price }}</ins>
                                 </div>
                                 <div class="mx-w-150">
                                     <div class="form-group">
                                         <label class="text-blue">Quantidade</label>
-                                        <input id="demo3_22" type="text" value="1" name="demo3_22">
+                                        <input id="qtde" class="demo3_22" type="text" value="1" name="qtde">
                                     </div>
                                 </div>
                                 <div class="row">
+                                    
+                                    <input type="submit" class="btn btn-primary btn-block" id="submit" value="Adicionar ao Carrinho">
+                                    
                                     <div class="col-md-6 col-6">
                                         <a href="/addcart/{{ $product->id }}" class="btn btn-primary btn-block">Adicionar ao Carrinho <i class="icon-copy fa fa-cart-plus" aria-hidden="true"></i></a>
                                     </div>
@@ -71,7 +82,9 @@
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
+                        
                     </div>
                 </div>
 
@@ -123,6 +136,7 @@
                 </div>
 
             </div>
+
         </div>
     </div>
 </div>
@@ -159,7 +173,7 @@ jQuery(document).ready(function () {
         centerMode: true,
         focusOnSelect: true
     });
-    $("input[name='demo3_22']").TouchSpin({
+    $("input[class='demo3_22']").TouchSpin({
         initval: 1
     });
 });

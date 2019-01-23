@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\ProductCategory;
+use App\Models\ProductSimilar;
 
-class ProductCategory extends Seeder
+class ProductSimilarSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class ProductCategory extends Seeder
     public function run()
     {
         for ($x = 1; $x <= 5; $x++) {
-            ProductCategory::firstOrCreate([
+            ProductSimilar::firstOrCreate([
                 'product_id' => $x,
-                'category_id' => 1,                
+                'product_similar_id' => 1,
             ]);
         }
     }

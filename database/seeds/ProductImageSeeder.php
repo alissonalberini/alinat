@@ -28,7 +28,7 @@ class ProductImageSeeder extends Seeder
             ]);
             ProductImage::firstOrCreate([
                 'product_id' => $x,
-                'file' => 'back-' . $x . '.PNG',
+                'file' => 'b-' . $x . '.PNG',
             ]);
 
         }

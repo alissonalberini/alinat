@@ -20,15 +20,7 @@
             @endforelse
             
             <div class="clearfix"></div>
-
-            <li class="nav-item">
-                @if(Session('cart.item'))
-                    <a class="nav-link" href="#">{{ Session('item') }} <span class="fas fa-shopping-cart"></span></a>
-                @endif
-                <a class="nav-link" href="#">Cart <span class="fas fa-shopping-cart"></span>
-                     <span class="badge badge-light">4</span>
-                </a>
-            </li>
+            
             <li class="nav-item">
                 <a class="nav-link" href="/pay">Pay</a>
             </li>
